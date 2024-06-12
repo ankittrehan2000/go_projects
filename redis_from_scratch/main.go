@@ -37,5 +37,7 @@ func main() {
 
 		// ignore request and send back an RESP OK response
 		conn.Write([]byte("+OK\r\n"))
+		writer := NewWriter(conn)
+		writer.Write(Value{typ: "string", str: "OK"})
 	}
 }
